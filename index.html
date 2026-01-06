@@ -18,11 +18,6 @@ s.parentNode.insertBefore(t,s)
 fbq('init','1977805139818585');
 fbq('track','PageView');
 </script>
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1977805139818585&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel Code -->
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -38,26 +33,46 @@ html,body{
 width:100%;
 height:100%;
 overflow:hidden;
+background:#000;
 }
 
-/* Background Image */
-.bg-image{
+/* 🔥 FULL PAGE NEON FRAME */
+.neon-frame{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
+pointer-events:none;
+border:4px solid transparent;
+border-radius:12px;
+background:
+linear-gradient(#000,#000) padding-box,
+linear-gradient(90deg,#00ffe1,#ff00ff,#00ff99,#00ffe1) border-box;
+animation:frameGlow 4s linear infinite;
+box-shadow:
+0 0 20px #00ffe1,
+inset 0 0 20px rgba(0,255,225,0.6);
+z-index:9999;
+}
+
+@keyframes frameGlow{
+0%{filter:hue-rotate(0deg);}
+100%{filter:hue-rotate(360deg);}
+}
+
+/* Background */
+.bg-image{
+position:fixed;
+inset:0;
 background:url('https://github.com/bestanalystt/Yashgowda22/blob/main/YASH100X.jpg?raw=true') center/cover no-repeat;
-filter:brightness(0.4);
+filter:brightness(0.35);
 z-index:-2;
 }
 
 .overlay{
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+inset:0;
 background:rgba(0,0,0,0.55);
 z-index:-1;
 }
@@ -73,84 +88,126 @@ color:#fff;
 padding:20px;
 }
 
-/* ✅ IMAGE SIZE FIXED HERE */
+/* 🪞 Mirror Avatar */
+.avatar-wrap{
+position:relative;
+}
+
 .avatar{
-width:120px;
-height:120px;
+width:160px;
+height:160px;
 border-radius:50%;
 object-fit:cover;
 border:4px solid #00ffe1;
-box-shadow:0 0 30px #00ffe1;
-margin-bottom:15px;
+box-shadow:0 0 35px #00ffe1;
 }
 
-@media(min-width:768px){
-.avatar{
-width:150px;
-height:150px;
-}
+.avatar-wrap::after{
+content:"";
+position:absolute;
+top:170px;
+left:0;
+width:160px;
+height:160px;
+background:url('https://github.com/bestanalystt/Yashgowda22/blob/main/YASH100X.jpg?raw=true') center/cover no-repeat;
+transform:scaleY(-1);
+opacity:0.35;
+filter:blur(2px);
+mask-image:linear-gradient(to bottom,rgba(0,0,0,0.6),transparent);
 }
 
 h1{
 font-size:28px;
 font-weight:700;
-margin-bottom:6px;
+margin-top:15px;
+}
+
+/* 🔲 Telugu Neon Box */
+.telugu-box{
+margin-top:8px;
+padding:8px 26px;
+border:2px solid #00ffe1;
+border-radius:6px;
+font-size:20px;
+font-weight:700;
+letter-spacing:2px;
+color:#00ffe1;
+box-shadow:
+0 0 10px #00ffe1,
+inset 0 0 10px #00ffe1;
+animation:teluguGlow 2s infinite alternate;
+}
+
+@keyframes teluguGlow{
+0%{
+color:#00ffe1;
+border-color:#00ffe1;
+box-shadow:0 0 10px #00ffe1,inset 0 0 10px #00ffe1;
+}
+100%{
+color:#ff00ff;
+border-color:#ff00ff;
+box-shadow:0 0 20px #ff00ff,inset 0 0 14px #ff00ff;
+}
 }
 
 .subtitle{
 font-size:14px;
 opacity:0.9;
-margin-bottom:20px;
+margin:15px 0 20px;
 }
 
 .timer{
-font-size:42px;
+font-size:38px;
 font-weight:700;
-color:#00ffe1;
-margin-bottom:5px;
+color:#ff3cff;
 }
 
-.seconds-left{
-font-size:13px;
-opacity:0.8;
-margin-bottom:20px;
-}
-
+/* 🔥 Animated CTA */
 .cta{
-display:inline-block;
-padding:14px 28px;
-background:#00ffe1;
-color:#000;
-text-decoration:none;
+margin-top:20px;
+padding:14px 32px;
+border-radius:40px;
 font-weight:700;
-border-radius:30px;
+text-decoration:none;
+color:#000;
+background:#00ffe1;
 box-shadow:0 0 25px #00ffe1;
-transition:0.3s;
+animation:zoomPulse 1.5s infinite, neonGlow 3s infinite;
 }
 
-.cta:hover{
-transform:scale(1.05);
-box-shadow:0 0 40px #00ffe1;
+@keyframes zoomPulse{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.12);}
+}
+
+@keyframes neonGlow{
+0%{background:#00ffe1;box-shadow:0 0 25px #00ffe1;}
+50%{background:#ff00ff;box-shadow:0 0 30px #ff00ff;}
+100%{background:#00ff99;box-shadow:0 0 25px #00ff99;}
 }
 </style>
 </head>
 
 <body>
 
+<div class="neon-frame"></div>
+
 <div class="bg-image"></div>
 <div class="overlay"></div>
 
 <div class="card">
 
-<img src="https://github.com/bestanalystt/Yashgowda22/blob/main/YASH100X.jpg?raw=true"
-class="avatar"
-alt="YASH GOWDA">
+<div class="avatar-wrap">
+<img src="https://github.com/bestanalystt/Yashgowda22/blob/main/YASH100X.jpg?raw=true" class="avatar">
+</div>
 
 <h1>YASH GOWDA™ (2017)</h1>
+<div class="telugu-box">యశ్ గౌడా</div>
+
 <p class="subtitle">Cricket & Tennis Free Tips • Trusted on Telegram</p>
 
-<div id="timer" class="timer">0:59</div>
-<p class="seconds-left">Auto redirect to Telegram</p>
+<div class="timer">Redirecting...</div>
 
 <a href="https://t.me/+U-jCLwP7n-FmMjU1" class="cta">
 JOIN TELEGRAM CHANNEL
@@ -159,19 +216,10 @@ JOIN TELEGRAM CHANNEL
 </div>
 
 <script>
-let time = 59;
-const timerEl = document.getElementById("timer");
-
-const countdown = setInterval(()=>{
-let s = time < 10 ? "0"+time : time;
-timerEl.innerText = "0:" + s;
-time--;
-
-if(time < 0){
-clearInterval(countdown);
-window.location.href = "https://t.me/+U-jCLwP7n-FmMjU1";
-}
-},1000);
+/* ⏱️ Auto Redirect in 2 Seconds */
+setTimeout(()=>{
+window.location.href="https://t.me/+U-jCLwP7n-FmMjU1";
+},2000);
 </script>
 
 </body>
