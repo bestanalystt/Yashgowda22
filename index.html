@@ -23,57 +23,29 @@ fbq('track','PageView');
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-html,body{
-width:100%;
-height:100%;
-overflow:hidden;
-background:#000;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+html,body{width:100%;height:100%;overflow:hidden;background:#000}
 
 /* 🔥 FULL PAGE NEON FRAME */
 .neon-frame{
-position:fixed;
-inset:0;
-pointer-events:none;
-border:4px solid transparent;
-border-radius:12px;
+position:fixed;inset:0;pointer-events:none;
+border:4px solid transparent;border-radius:12px;
 background:
 linear-gradient(#000,#000) padding-box,
 linear-gradient(90deg,#00ffe1,#ff00ff,#00ff99,#00ffe1) border-box;
-animation:frameGlow 4s linear infinite;
-box-shadow:
-0 0 25px #00ffe1,
-inset 0 0 25px rgba(0,255,225,0.6);
+animation:hue 4s linear infinite;
+box-shadow:0 0 25px #00ffe1;
 z-index:9999;
 }
-
-@keyframes frameGlow{
-0%{filter:hue-rotate(0deg);}
-100%{filter:hue-rotate(360deg);}
-}
+@keyframes hue{to{filter:hue-rotate(360deg)}}
 
 /* Background */
 .bg-image{
-position:fixed;
-inset:0;
+position:fixed;inset:0;
 background:url('https://github.com/bestanalystt/Yashgowda22/blob/main/YASH100X.jpg?raw=true') center/cover no-repeat;
-filter:brightness(0.35);
-z-index:-2;
+filter:brightness(0.35);z-index:-2;
 }
-
-.overlay{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.55);
-z-index:-1;
-}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:-1;}
 
 .card{
 height:100vh;
@@ -83,42 +55,30 @@ align-items:center;
 justify-content:center;
 text-align:center;
 color:#fff;
-padding:20px;
 }
 
-/* 🪞 Mirror Avatar */
-.avatar-wrap{
-position:relative;
-}
-
+/* 🪞 Avatar + Mirror */
+.avatar-wrap{position:relative}
 .avatar{
-width:160px;
-height:160px;
+width:160px;height:160px;
 border-radius:50%;
-object-fit:cover;
 border:4px solid #00ffe1;
-box-shadow:0 0 35px #00ffe1;
+box-shadow:0 0 30px #00ffe1;
+object-fit:cover;
 }
-
 .avatar-wrap::after{
 content:"";
 position:absolute;
 top:170px;
-left:0;
-width:160px;
-height:160px;
+width:160px;height:160px;
 background:url('https://github.com/bestanalystt/Yashgowda22/blob/main/YASH100X.jpg?raw=true') center/cover no-repeat;
 transform:scaleY(-1);
-opacity:0.35;
+opacity:.35;
 filter:blur(2px);
-mask-image:linear-gradient(to bottom,rgba(0,0,0,0.6),transparent);
+mask-image:linear-gradient(to bottom,rgba(0,0,0,.6),transparent);
 }
 
-h1{
-font-size:28px;
-font-weight:700;
-margin-top:15px;
-}
+h1{margin-top:15px;font-size:28px;font-weight:700}
 
 /* 🔲 Telugu Neon Box */
 .telugu-box{
@@ -128,21 +88,12 @@ border:2px solid #00ffe1;
 border-radius:6px;
 font-size:20px;
 font-weight:700;
-letter-spacing:2px;
 color:#00ffe1;
-box-shadow:
-0 0 12px #00ffe1,
-inset 0 0 12px #00ffe1;
-animation:teluguGlow 2s infinite alternate;
-}
-
-@keyframes teluguGlow{
-0%{
-color:#00ffe1;
-border-color:#00ffe1;
 box-shadow:0 0 12px #00ffe1,inset 0 0 12px #00ffe1;
+animation:glow 2s alternate infinite;
 }
-100%{
+@keyframes glow{
+to{
 color:#ff00ff;
 border-color:#ff00ff;
 box-shadow:0 0 22px #ff00ff,inset 0 0 16px #ff00ff;
@@ -150,18 +101,18 @@ box-shadow:0 0 22px #ff00ff,inset 0 0 16px #ff00ff;
 }
 
 .subtitle{
+margin:15px 0;
 font-size:14px;
-opacity:0.9;
-margin:15px 0 18px;
+opacity:.9;
 }
 
 .timer{
-font-size:36px;
+font-size:38px;
 font-weight:700;
 color:#ff3cff;
 }
 
-/* 🔥 Animated CTA Button */
+/* CTA */
 .cta{
 margin-top:20px;
 padding:14px 32px;
@@ -171,18 +122,10 @@ text-decoration:none;
 color:#000;
 background:#00ffe1;
 box-shadow:0 0 25px #00ffe1;
-animation:zoomPulse 1.5s infinite, neonGlow 3s infinite;
+animation:pulse 1.5s infinite;
 }
-
-@keyframes zoomPulse{
-0%,100%{transform:scale(1);}
-50%{transform:scale(1.12);}
-}
-
-@keyframes neonGlow{
-0%{background:#00ffe1;box-shadow:0 0 25px #00ffe1;}
-50%{background:#ff00ff;box-shadow:0 0 30px #ff00ff;}
-100%{background:#00ff99;box-shadow:0 0 25px #00ff99;}
+@keyframes pulse{
+50%{transform:scale(1.12)}
 }
 </style>
 </head>
@@ -194,29 +137,51 @@ animation:zoomPulse 1.5s infinite, neonGlow 3s infinite;
 <div class="overlay"></div>
 
 <div class="card">
+  <div class="avatar-wrap">
+    <img class="avatar" src="https://github.com/bestanalystt/Yashgowda22/blob/main/YASH100X.jpg?raw=true">
+  </div>
 
-<div class="avatar-wrap">
-<img src="https://github.com/bestanalystt/Yashgowda22/blob/main/YASH100X.jpg?raw=true" class="avatar" alt="YASH GOWDA">
-</div>
+  <h1>YASH GOWDA™ (2017)</h1>
+  <div class="telugu-box">యశ్ గౌడా</div>
 
-<h1>YASH GOWDA™ (2017)</h1>
-<div class="telugu-box">యశ్ గౌడా</div>
+  <p class="subtitle">Cricket & Tennis Free Tips • Trusted on Telegram</p>
 
-<p class="subtitle">Cricket & Tennis Free Tips • Trusted on Telegram</p>
+  <div id="timer" class="timer">Please wait…</div>
 
-<div class="timer">Redirecting in 4 seconds…</div>
-
-<a href="https://t.me/+U-jCLwP7n-FmMjU1" class="cta">
-JOIN TELEGRAM CHANNEL
-</a>
-
+  <a class="cta" href="https://t.me/+U-jCLwP7n-FmMjU1">
+    JOIN TELEGRAM CHANNEL
+  </a>
 </div>
 
 <script>
-/* ⏱️ Auto Redirect in 4 Seconds */
-setTimeout(()=>{
-  window.location.href = "https://t.me/+U-jCLwP7n-FmMjU1";
-},4000);
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Force browser to paint UI first
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+
+      // 🔒 Minimum 3 seconds page visible
+      setTimeout(() => {
+
+        let time = 4;
+        const timer = document.getElementById("timer");
+
+        const interval = setInterval(() => {
+          timer.innerText = "Redirecting in " + time;
+          time--;
+
+          if (time < 0) {
+            clearInterval(interval);
+            window.location.href = "https://t.me/+U-jCLwP7n-FmMjU1";
+          }
+        }, 1000);
+
+      }, 3000);
+
+    });
+  });
+
+});
 </script>
 
 </body>
